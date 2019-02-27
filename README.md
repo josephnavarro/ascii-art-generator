@@ -1,10 +1,12 @@
 # Simple ASCII Art Generator
 
 ## Overview
-A customizable ASCII art generation tool. The tool arranges a set of glyphs in order of their luminosity, profiles an image for luminosity across arbitrarily-sized subregions, then maps glyphs appropriately into an output string.
+A customizable ASCII art generation tool. The tool arranges a set of glyphs in order of their luminosity, profiles an image for luminosity across arbitrarily-sized subregions, then maps glyphs appropriately into an output string. Use responsibly.
 
 ## Examples
-<img src="res/minion.jpg" alt="base1">
+<p align="center">
+<img src="res/minion.jpg" alt="LOL"><br>
+  <i>Figure 1: A funny guy</i></p>
 
 ```
 
@@ -66,6 +68,9 @@ A customizable ASCII art generation tool. The tool arranges a set of glyphs in o
 
 
 ```
+<p align="center">
+<i>Figure 2: Holy heck!</i>
+</p>
 
 ## Usage
 `python3 asciier.py -f <font> -i <image> [-x <width>] [-y <height>] [-s <size>] [-c <chars>] [-o <output>] [-r <invert>]`

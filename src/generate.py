@@ -5,8 +5,8 @@
 :
 :
 """
-from asciier.ascii      import *
-from asciier.luminosity import *
+from src.ascii      import *
+from src.luminosity import *
 
 
 

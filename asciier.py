@@ -20,14 +20,14 @@ class CommandLine:
     def __init__(self):
         o_Parser = argparse.ArgumentParser(description=DESCRIPTION)
 
-        o_Parser.add_argument("-f", dest="Font filename",     help=HELP_FONT,    required=True,  default='', )
-        o_Parser.add_argument("-i", dest="Image filename",    help=HELP_IMAGE,   required=True,  default='',)
-        o_Parser.add_argument("-x", dest="Subregion width",   help=HELP_WIDTH,   required=False, default=ITER_WIDTH,)
-        o_Parser.add_argument("-y", dest="Subregion height",  help=HELP_HEIGHT,  required=False, default=ITER_HEIGHT,)
-        o_Parser.add_argument("-s", dest="Font size",         help=HELP_SIZE,    required=False, default=FONT_SIZE,)
-        o_Parser.add_argument("-c", dest="Character set",     help=HELP_CHARS,   required=False, default=CHARACTERS,)
-        o_Parser.add_argument("-o", dest="Output file",       help=HELP_OUTPUT,  required=False, default='',)
-        o_Parser.add_argument("-r", dest="Invert luminosity", help=HELP_REVERSE, required=False, default=False,)
+        o_Parser.add_argument("-f", dest="font",   help=HELP_FONT,    required=True,  default='', )
+        o_Parser.add_argument("-i", dest="image",  help=HELP_IMAGE,   required=True,  default='',)
+        o_Parser.add_argument("-x", dest="width",  help=HELP_WIDTH,   required=False, default=ITER_WIDTH,)
+        o_Parser.add_argument("-y", dest="height", help=HELP_HEIGHT,  required=False, default=ITER_HEIGHT,)
+        o_Parser.add_argument("-s", dest="size",   help=HELP_SIZE,    required=False, default=FONT_SIZE,)
+        o_Parser.add_argument("-c", dest="chars",  help=HELP_CHARS,   required=False, default=CHARACTERS,)
+        o_Parser.add_argument("-o", dest="output", help=HELP_OUTPUT,  required=False, default='',)
+        o_Parser.add_argument("-r", dest="invert", help=HELP_REVERSE, required=False, default=False,)
 
         ns_Arguments    = o_Parser.parse_args()  # type: argparse.Namespace
         s_FontFilename  = ns_Arguments.font      # type: str
@@ -35,7 +35,7 @@ class CommandLine:
         s_IterWidth     = ns_Arguments.width     # type: str
         s_IterHeight    = ns_Arguments.height    # type: str
         s_Size          = ns_Arguments.size      # type: str
-        s_Reverse       = ns_Arguments.reverse   # type: str
+        s_Reverse       = ns_Arguments.invert    # type: str
         s_Output        = ns_Arguments.output    # type: str
         s_Chars         = ns_Arguments.chars     # type: str
         i_IterWidth     = int(s_IterWidth)       # type: int

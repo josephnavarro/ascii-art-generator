@@ -4,16 +4,15 @@ from asciier import *
 
 
 
-DESCRIPTION  = "Description"
-HELP_HELP    = "Example: Help argument"
-HELP_INPUT   = "Example"
-HELP_IMAGE   = "Example"
-HELP_WIDTH   = "Ex"
-HELP_HEIGHT  = "Ex"
-HELP_SIZE    = "Size"
-HELP_REVERSE = "EX"
-HELP_CHARS   = "Ch"
-HELP_OUTPUT  = "X"
+DESCRIPTION  = "Customizable ASCII art generator. Requires PIL and FreeType."
+HELP_FONT    = "set input font file (.ttf)"
+HELP_IMAGE   = "set input image file"
+HELP_WIDTH   = "set pixel width for subregions"
+HELP_HEIGHT  = "set pixel height for subregions"
+HELP_SIZE    = "set font size"
+HELP_REVERSE = "invert luminosity mapping"
+HELP_CHARS   = "set character set"
+HELP_OUTPUT  = "set output file (.txt)"
 
 
 
@@ -21,15 +20,14 @@ class CommandLine:
     def __init__(self):
         o_Parser = argparse.ArgumentParser(description=DESCRIPTION)
 
-        o_Parser.add_argument("-H", "--Help",    help=HELP_HELP,    required=False, default='',)
-        o_Parser.add_argument("-f", "--font",    help=HELP_INPUT,   required=True,  default='',)
-        o_Parser.add_argument("-i", "--image",   help=HELP_IMAGE,   required=True,  default='',)
-        o_Parser.add_argument("-x", "--width",   help=HELP_WIDTH,   required=False, default=ITER_WIDTH,)
-        o_Parser.add_argument("-y", "--height",  help=HELP_HEIGHT,  required=False, default=ITER_HEIGHT,)
-        o_Parser.add_argument("-s", "--size",    help=HELP_SIZE,    required=False, default=FONT_SIZE,)
-        o_Parser.add_argument("-r", "--reverse", help=HELP_REVERSE, required=False, default=False,)
-        o_Parser.add_argument("-c", "--chars",   help=HELP_CHARS,   required=False, default=CHARACTERS,)
-        o_Parser.add_argument("-o", "--output",  help=HELP_OUTPUT,  required=False, default='',)
+        o_Parser.add_argument("-f", dest="Font filename",     help=HELP_FONT,    required=True,  default='', )
+        o_Parser.add_argument("-i", dest="Image filename",    help=HELP_IMAGE,   required=True,  default='',)
+        o_Parser.add_argument("-x", dest="Subregion width",   help=HELP_WIDTH,   required=False, default=ITER_WIDTH,)
+        o_Parser.add_argument("-y", dest="Subregion height",  help=HELP_HEIGHT,  required=False, default=ITER_HEIGHT,)
+        o_Parser.add_argument("-s", dest="Font size",         help=HELP_SIZE,    required=False, default=FONT_SIZE,)
+        o_Parser.add_argument("-c", dest="Character set",     help=HELP_CHARS,   required=False, default=CHARACTERS,)
+        o_Parser.add_argument("-o", dest="Output file",       help=HELP_OUTPUT,  required=False, default='',)
+        o_Parser.add_argument("-r", dest="Invert luminosity", help=HELP_REVERSE, required=False, default=False,)
 
         ns_Arguments    = o_Parser.parse_args()  # type: argparse.Namespace
         s_FontFilename  = ns_Arguments.font      # type: str

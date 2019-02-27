@@ -13,6 +13,7 @@ HELP_HEIGHT  = "Ex"
 HELP_SIZE    = "Size"
 HELP_REVERSE = "EX"
 HELP_CHARS   = "Ch"
+HELP_OUTPUT  = "X"
 
 
 
@@ -28,6 +29,7 @@ class CommandLine:
         o_Parser.add_argument("-s", "--size",    help=HELP_SIZE,    required=False, default=FONT_SIZE,)
         o_Parser.add_argument("-r", "--reverse", help=HELP_REVERSE, required=False, default=False,)
         o_Parser.add_argument("-c", "--chars",   help=HELP_CHARS,   required=False, default=CHARACTERS,)
+        o_Parser.add_argument("-o", "--output",  help=HELP_OUTPUT,  required=False, default='',)
 
         ns_Arguments    = o_Parser.parse_args()  # type: argparse.Namespace
         s_FontFilename  = ns_Arguments.font      # type: str
@@ -36,6 +38,7 @@ class CommandLine:
         s_IterHeight    = ns_Arguments.height    # type: str
         s_Size          = ns_Arguments.size      # type: str
         s_Reverse       = ns_Arguments.reverse   # type: str
+        s_Output        = ns_Arguments.output    # type: str
         s_Chars         = ns_Arguments.chars     # type: str
         i_IterWidth     = int(s_IterWidth)       # type: int
         i_IterHeight    = int(s_IterHeight)      # type: int
@@ -55,6 +58,7 @@ class CommandLine:
         fn_ProcessImage(
             s_FontFilename,
             s_ImageFilename,
+            s_Output,
             s_Chars,
             b_Reverse,
             i_Size,

@@ -225,6 +225,7 @@ def fn_GenerateAscii(d_CoordToChar: dict) -> str:
 def fn_ProcessImage(
         s_FontFilename:  str,
         s_ImageFilename: str,
+        s_Output:        str  = '',
         s_CharacterSet:  str  = CHARACTERS,
         b_Invert:        bool = INVERT,
         i_Size:          int  = FONT_SIZE,
@@ -262,7 +263,16 @@ def fn_ProcessImage(
     # Generate ASCII image using coordinates -> characters
     # ...
     s_Out = fn_GenerateAscii(d_CoordToChar)
-    print(s_Out)
+
+    # If output filename specified, save file there; otherwise, just print it out.
+    # ...
+    if s_Output:
+        with open(s_Output, 'w') as f:
+            f.write(s_Out)
+        print("Wrote to output file: {0}".format(s_Output))
+    else:
+        print()
+        print(s_Out)
 
 
 

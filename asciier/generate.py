@@ -5,8 +5,8 @@
 :
 :
 """
-from lib.ascii      import *
-from lib.luminosity import *
+from asciier.ascii      import *
+from asciier.luminosity import *
 
 
 
@@ -200,6 +200,8 @@ def fn_GenerateAscii(d_CoordToChar: dict) -> str:
     d_Ascii  = {}  # type: dict
     s_Output = ''  # type: str
 
+    # Map images to x-y coordinates, splitting x- and y- into their own sub-dictionaries
+    # ...
     for i2_Coord, s_Char in d_CoordToChar.items():
         i_X, i_Y = i2_Coord
 
@@ -209,6 +211,9 @@ def fn_GenerateAscii(d_CoordToChar: dict) -> str:
         if i_Y not in d_Ascii[i_X]:
             d_Ascii[i_X][i_Y] = s_Char
 
+    # Sort the entries for each "row" of ASCII characters in the dictionary, then join them and concatenate the
+    # resulting string
+    # ...
     for i_X, d_X in d_Ascii.items():
         s_Output += ''.join(fn_SortByKey(d_X))
         s_Output += '\n'
@@ -245,7 +250,7 @@ def fn_ProcessImage(
     i_NumLuminosity = fn_GetNumValues(d_CoordToLum)                     # type: int
     l_Luminosity    = list(set(d_CoordToLum.values()))                  # type: list
 
-    # Relay a series of associative mappings to end with characters mapped under relative coordinates
+    # Relay a series of associative mappings, ending with characters mapped under relative coordinates
     # ...
     d_CharRange   = fn_MapRange(s_Characters, i_NumLuminosity)      # type: dict
     d_LumRange    = fn_MapRange(l_Luminosity, i_NumLuminosity)      # type: dict
@@ -258,7 +263,6 @@ def fn_ProcessImage(
     # ...
     s_Out = fn_GenerateAscii(d_CoordToChar)
     print(s_Out)
-
 
 
 

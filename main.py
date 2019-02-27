@@ -1,16 +1,16 @@
 #! usr/bin/env python3
-import sys, argparse
+import argparse
 from asciier import *
 
 
 
-DESCRIPTION = "Description"
-HELP_HELP   = "Example: Help argument"
-HELP_INPUT  = "Example"
-HELP_IMAGE  = "Example"
-HELP_WIDTH  = "Ex"
-HELP_HEIGHT = "Ex"
-HELP_SIZE   = "Size"
+DESCRIPTION  = "Description"
+HELP_HELP    = "Example: Help argument"
+HELP_INPUT   = "Example"
+HELP_IMAGE   = "Example"
+HELP_WIDTH   = "Ex"
+HELP_HEIGHT  = "Ex"
+HELP_SIZE    = "Size"
 HELP_REVERSE = "EX"
 HELP_CHARS   = "Ch"
 
@@ -23,8 +23,8 @@ class CommandLine:
         o_Parser.add_argument("-H", "--Help",    help=HELP_HELP,    required=False, default='',)
         o_Parser.add_argument("-f", "--font",    help=HELP_INPUT,   required=True,  default='',)
         o_Parser.add_argument("-i", "--image",   help=HELP_IMAGE,   required=True,  default='',)
-        o_Parser.add_argument("-w", "--width",   help=HELP_WIDTH,   required=False, default=ITER_WIDTH,)
-        o_Parser.add_argument("-x", "--height",  help=HELP_HEIGHT,  required=False, default=ITER_HEIGHT,)
+        o_Parser.add_argument("-x", "--width",   help=HELP_WIDTH,   required=False, default=ITER_WIDTH,)
+        o_Parser.add_argument("-y", "--height",  help=HELP_HEIGHT,  required=False, default=ITER_HEIGHT,)
         o_Parser.add_argument("-s", "--size",    help=HELP_SIZE,    required=False, default=FONT_SIZE,)
         o_Parser.add_argument("-r", "--reverse", help=HELP_REVERSE, required=False, default=False,)
         o_Parser.add_argument("-c", "--chars",   help=HELP_CHARS,   required=False, default=CHARACTERS,)
@@ -61,18 +61,6 @@ class CommandLine:
             i_IterWidth,
             i_IterHeight
             )
-
-
-
-
-def main():
-    l_Args = sys.argv
-    s_FontFilename = l_Args[1]
-    s_ImageFilename = l_Args[2]
-    fn_ProcessImage(s_FontFilename, s_ImageFilename)
-
-
-
 
 
 
